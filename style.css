@@ -1,7 +1,7 @@
-/* Importando as fontes (caso ainda não tenha) */
+/* Importando as fontes (Essencial para o visual) */
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Montserrat:wght@700;800&display=swap');
 
-/* Reset básico */
+/* Reset básico para evitar conflitos */
 * {
     margin: 0;
     padding: 0;
@@ -9,20 +9,21 @@
 }
 
 body {
-    background-color: #0f1115; /* Fundo escuro de fallback */
+    background-color: #0f1115; /* Fundo escuro sutil */
     color: #ffffff;
     font-family: 'Jost', sans-serif;
+    line-height: 1.6;
 }
 
-/* Seção Hero Cinematográfica */
+/* Seção Hero Cinematográfica Corrigida */
 .hero {
     position: relative;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 100vh; /* Ocupa a altura total da janela */
+    display: flex; /* Flexbox para centralização */
+    align-items: center; /* Centralização vertical */
+    justify-content: center; /* Centralização horizontal */
     text-align: center;
-    /* Aqui entra o gradiente escuro sobre a imagem */
+    /* Gradiente sutil sobre a imagem */
     background-image: linear-gradient(to bottom, rgba(15, 17, 21, 0.7), rgba(15, 17, 21, 0.95)), url('seu-background.jpg');
     background-size: cover;
     background-position: center;
@@ -32,17 +33,18 @@ body {
 .hero-content {
     max-width: 800px;
     z-index: 2; /* Garante que o texto fique acima do fundo */
-    animation: fadeIn 1.5s ease-out;
+    opacity: 1; /* Removendo a animação temporariamente para teste */
 }
 
-/* Tipografia Refinada */
+/* Tipografia Refinada Corrigida */
 .overline {
     display: block;
     font-size: 0.85rem;
     text-transform: uppercase;
-    letter-spacing: 4px;
-    color: #8c92a0;
+    letter-spacing: 4px; /* Espaçamento elegante */
+    color: #8c92a0; /* Cor clara correta */
     margin-bottom: 20px;
+    font-weight: 500;
 }
 
 .main-title {
@@ -50,32 +52,36 @@ body {
     font-size: 4rem; /* Tamanho grande e impactante */
     font-weight: 800;
     line-height: 1.1;
-    letter-spacing: -1.5px; /* Deixa a fonte mais unida e moderna */
+    letter-spacing: -1.5px; /* Deixa a fonte mais moderna */
     margin-bottom: 24px;
+    color: #ffffff;
 }
 
 .subtitle {
     font-size: 1.25rem;
     font-weight: 400;
-    color: #b0b5c0;
+    color: #b0b5c0; /* Cor clara correta para legibilidade */
     margin-bottom: 40px;
     line-height: 1.6;
 }
 
-/* Botões Modernos */
+/* Botões Modernos e Centralizados */
 .cta-group {
     display: flex;
     gap: 16px;
-    justify-content: center;
+    justify-content: center; /* Centraliza os botões */
+    margin-top: 20px;
 }
 
 .btn {
+    display: inline-block;
     padding: 16px 32px;
     font-size: 1rem;
     font-weight: 500;
     text-decoration: none;
     border-radius: 4px;
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .btn-primary {
@@ -99,17 +105,4 @@ body {
     border-color: #ffffff;
     background-color: rgba(255, 255, 255, 0.05);
     transform: translateY(-2px);
-}
-
-/* Animação de entrada suave */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Responsividade para celulares */
-@media (max-width: 768px) {
-    .main-title { font-size: 2.5rem; }
-    .subtitle { font-size: 1.1rem; }
-    .cta-group { flex-direction: column; }
 }
