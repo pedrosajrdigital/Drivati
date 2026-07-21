@@ -17,18 +17,19 @@ body {
 
 /* Seção Hero Cinematográfica Corrigida */
 .hero {
-    position: relative;
-    height: 100vh; /* Ocupa a altura total da janela */
-    display: flex; /* Flexbox para centralização */
-    align-items: center; /* Centralização vertical */
-    justify-content: center; /* Centralização horizontal */
-    text-align: center;
-    /* Gradiente sutil sobre a imagem */
-    background-image: linear-gradient(to bottom, rgba(15, 17, 21, 0.7), rgba(15, 17, 21, 0.95)), url('seu-background.jpg');
-    background-size: cover;
-    background-position: center;
-    padding: 0 20px;
-}
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            
+            /* O segredo cinematográfico: Gradiente escuro + Sua Imagem */
+            background-image: linear-gradient(to bottom, rgba(15, 17, 21, 0.85), rgba(15, 17, 21, 0.98)), url('fundo.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 0 20px;
+        }
 
 .hero-content {
     max-width: 800px;
