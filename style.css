@@ -1,0 +1,107 @@
+:root {
+  --color-dark: #12151b;
+  --color-accent: #f8f9fa;
+  --color-text: #b0b3b8;
+  --font-display: 'Montserrat', sans-serif;
+  --font-body: 'Jost', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-dark);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+/* Seção Principal com Imagem de Fundo e Filtro Cinemático */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  
+  /* Filtro escuro para um visual cinemático e profissional, sem luzes estouradas */
+  background-image: linear-gradient(rgba(18, 21, 27, 0.7), rgba(18, 21, 27, 0.85)), url('images/new_square_var.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  padding: 0 20px;
+}
+
+.hero-container {
+  max-width: 800px;
+}
+
+.hero-badge {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #718096;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+  margin: 0 0 1.5rem 0;
+}
+
+.hero-subtitle {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  color: var(--color-text);
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+}
+
+/* Botões Modernos e Minimalistas */
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary, .btn-outline {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 14px 32px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #ffffff;
+  color: var(--color-dark);
+}
+
+.btn-primary:hover {
+  background-color: #e2e8f0;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-outline:hover {
+  border-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
+}
