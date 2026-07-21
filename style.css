@@ -1,107 +1,115 @@
-:root {
-  --color-dark: #12151b;
-  --color-accent: #f8f9fa;
-  --color-text: #b0b3b8;
-  --font-display: 'Montserrat', sans-serif;
-  --font-body: 'Jost', sans-serif;
-}
+/* Importando as fontes (caso ainda não tenha) */
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Montserrat:wght@700;800&display=swap');
 
+/* Reset básico */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  background-color: var(--color-dark);
-  color: var(--color-text);
-  font-family: var(--font-body);
+    background-color: #0f1115; /* Fundo escuro de fallback */
+    color: #ffffff;
+    font-family: 'Jost', sans-serif;
 }
 
-/* Seção Principal com Imagem de Fundo e Filtro Cinemático */
-.hero-section {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  
-  /* Filtro escuro para um visual cinemático e profissional, sem luzes estouradas */
-  background-image: linear-gradient(rgba(18, 21, 27, 0.7), rgba(18, 21, 27, 0.85)), url('images/new_square_var.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  
-  padding: 0 20px;
+/* Seção Hero Cinematográfica */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* Aqui entra o gradiente escuro sobre a imagem */
+    background-image: linear-gradient(to bottom, rgba(15, 17, 21, 0.7), rgba(15, 17, 21, 0.95)), url('seu-background.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 0 20px;
 }
 
-.hero-container {
-  max-width: 800px;
+.hero-content {
+    max-width: 800px;
+    z-index: 2; /* Garante que o texto fique acima do fundo */
+    animation: fadeIn 1.5s ease-out;
 }
 
-.hero-badge {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  color: #718096;
-  display: block;
-  margin-bottom: 1rem;
+/* Tipografia Refinada */
+.overline {
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #8c92a0;
+    margin-bottom: 20px;
 }
 
-.hero-title {
-  font-family: var(--font-display);
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 800;
-  color: #ffffff;
-  line-height: 1.1;
-  margin: 0 0 1.5rem 0;
+.main-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4rem; /* Tamanho grande e impactante */
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1.5px; /* Deixa a fonte mais unida e moderna */
+    margin-bottom: 24px;
 }
 
-.hero-subtitle {
-  font-family: var(--font-body);
-  font-size: 1.25rem;
-  color: var(--color-text);
-  margin-bottom: 2.5rem;
-  font-weight: 400;
+.subtitle {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #b0b5c0;
+    margin-bottom: 40px;
+    line-height: 1.6;
 }
 
-/* Botões Modernos e Minimalistas */
-.hero-actions {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
+/* Botões Modernos */
+.cta-group {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
 }
 
-.btn-primary, .btn-outline {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 500;
-  text-decoration: none;
-  padding: 14px 32px;
-  border-radius: 4px;
-  transition: all 0.3s ease;
+.btn {
+    padding: 16px 32px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
 }
 
 .btn-primary {
-  background-color: #ffffff;
-  color: var(--color-dark);
+    background-color: #ffffff;
+    color: #0f1115;
+    border: 1px solid #ffffff;
 }
 
 .btn-primary:hover {
-  background-color: #e2e8f0;
-  transform: translateY(-2px);
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
 }
 
-.btn-outline {
-  background-color: transparent;
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+.btn-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #4a4d55;
 }
 
-.btn-outline:hover {
-  border-color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.05);
-  transform: translateY(-2px);
+.btn-secondary:hover {
+    border-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+}
+
+/* Animação de entrada suave */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsividade para celulares */
+@media (max-width: 768px) {
+    .main-title { font-size: 2.5rem; }
+    .subtitle { font-size: 1.1rem; }
+    .cta-group { flex-direction: column; }
 }
