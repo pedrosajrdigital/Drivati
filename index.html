@@ -5,24 +5,770 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drivati - Engenharia de Tração Digital</title>
     
-    <!-- É ESTA LINHA QUE CONECTA O VISUAL. O 'href' deve ter o nome exato do seu arquivo CSS -->
-    <link rel="stylesheet" href="style.css"> 
-</head>
+    <style>
+        /* =========================================
+           FONTES E RESET BÁSICO
+           ========================================= */
+        @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Montserrat:wght@700;800&display=swap');
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0f1115; /* Fundo base escuro */
+            color: #ffffff;
+            font-family: 'Jost', sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased; /* Suaviza as fontes no Mac/iOS */
+        }
+
+        /* Classe utilitária para manter o conteúdo alinhado */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* =========================================
+           0. HEADER (CABEÇALHO FIXO)
+           ========================================= */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(15, 17, 21, 0.75); /* Fundo translúcido escuro */
+            backdrop-filter: blur(12px); /* Efeito de vidro (Apple/Premium) */
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Linha sutil separando */
+            z-index: 1000; /* Garante que fique acima de tudo */
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Tamanho controlado para o logotipo não quebrar o layout */
+        .header-logo {
+            height: 30px; 
+            width: auto;
+            display: block;
+        }
+
+        /* Menu de navegação */
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px; /* Espaço entre os links */
+        }
+
+        .main-nav a {
+            color: #b0b5c0;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav a:hover {
+            color: #ffffff; /* Acende o texto ao passar o mouse */
+        }
+
+        /* =========================================
+           1. SEÇÃO HERO (TOPO)
+           ========================================= */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            /* Lembre-se de colocar a sua imagem fundo.jpg real aqui depois */
+            background-image: linear-gradient(to bottom, rgba(15, 17, 21, 0.6), rgba(15, 17, 21, 0.98)), url('fundo.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* ADICIONADO: Efeito Parallax - Trava a imagem no fundo enquanto a página rola */
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+
+        .overline {
+            display: block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #8c92a0;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .main-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            margin-bottom: 24px;
+            color: #ffffff;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: #b0b5c0;
+            margin-bottom: 40px;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #ffffff;
+            color: #0f1115;
+            border: 1px solid #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: #e0e0e0;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid #4a4d55;
+        }
+
+        .btn-secondary:hover {
+            border-color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
+        }
+
+        /* =========================================
+           2. SEÇÃO SOBRE (A TRÍADE)
+           ========================================= */
+        .about-section {
+            background-color: #22252B; /* ATUALIZADO: Fundo cinza escuro */
+            padding: 120px 0; /* Respiro generoso entre as seções */
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 80px; /* Distância para os cards */
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        /* ATUALIZADO: Cor específica Laranja apenas para o título da seção Nosso DNA */
+        .about-section .section-title {
+            color: #FF6B00; 
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: #b0b5c0;
+            line-height: 1.7;
+        }
+
+        /* Estrutura de Grid para os Pilares */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais */
+            gap: 30px;
+        }
+
+        /* Estilo dos Cartões (Cards) */
+        .pillar-card {
+            background-color: rgba(255, 255, 255, 0.02); /* Fundo quase invisível */
+            border: 1px solid rgba(255, 255, 255, 0.05); /* Borda muito sutil */
+            padding: 50px 40px;
+            border-radius: 8px; /* Cantos levemente arredondados */
+            transition: transform 0.4s ease, border-color 0.4s ease, background-color 0.4s ease;
+        }
+
+        /* Efeito Hover Cinematográfico nos Cards */
+        .pillar-card:hover {
+            transform: translateY(-10px); /* Levanta o cartão sutilmente */
+            background-color: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.15); /* A borda acende levemente */
+        }
+
+        .pillar-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #4a4d55;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .pillar-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        .pillar-text {
+            color: #8c92a0;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* =========================================
+           3. SEÇÃO METODOLOGIA E PROPOSTA
+           ========================================= */
+        .methodology-section {
+            background-color: #00D2D3; /* ATUALIZADO: Fundo Ciano Moderno */
+            padding: 120px 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.05); /* Borda sutil escura */
+        }
+
+        .methodology-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr; /* Coluna da direita um pouco mais larga */
+            gap: 80px;
+            align-items: start;
+        }
+
+        .methodology-header {
+            position: sticky;
+            top: 120px; /* Faz o título grudar na tela enquanto o usuário rola os passos */
+        }
+
+        /* ATUALIZADO: Forçando a cor Cinza Escuro em todos os textos da Seção Ciano para contraste perfeito */
+        .methodology-header .overline {
+            color: #4a5568; 
+        }
+
+        .methodology-header .section-title {
+            color: #1a202c; /* Quase preto para o título */
+        }
+
+        .methodology-header .section-description {
+            font-size: 1.25rem;
+            color: #2d3748; 
+            line-height: 1.6;
+        }
+
+        .methodology-step {
+            padding: 40px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Linha divisória escura para destacar no ciano */
+            transition: transform 0.4s ease;
+        }
+
+        .methodology-step:hover {
+            transform: translateX(10px); /* Efeito de interatividade premium ao passar o mouse */
+        }
+
+        .methodology-step:first-child {
+            padding-top: 0;
+        }
+
+        .methodology-step:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .step-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a202c; /* Cinza escuro no título do passo */
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Bolinha minimalista ao lado dos títulos */
+        .step-title::before {
+            content: "";
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background-color: #1a202c; /* Bolinha cinza escura */
+            border-radius: 50%;
+        }
+
+        .step-text {
+            color: #2d3748; /* Cinza escuro na descrição do passo */
+            line-height: 1.7;
+            font-size: 1.125rem;
+            padding-left: 27px; /* Alinha o texto perfeitamente, ignorando a bolinha */
+        }
+
+        /* =========================================
+           4. SEÇÃO PROJETOS TRACIONADOS
+           ========================================= */
+        .projects-section {
+            background-color: #22252B; /* ATUALIZADO: Fundo cinza escuro igual ao Nosso DNA */
+            padding: 120px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+            gap: 40px;
+        }
+
+        .project-card {
+            background-color: #2a2e35; /* Fundo do card um pouco mais claro para destacar no fundo cinza */
+            border: 1px solid rgba(255, 255, 255, 0.05); /* Moldura sutil */
+            border-radius: 8px;
+            overflow: hidden; /* Mantém a imagem dentro dos cantos arredondados */
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px); /* Levanta ao passar o mouse */
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* Sombra cinematográfica profunda */
+        }
+
+        /* Área da imagem de capa do projeto */
+        .project-image {
+            width: 100%;
+            height: 240px;
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Corpo do card onde vai o texto e botão */
+        .project-info {
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1; /* Força o card a esticar e jogar o botão pro final */
+        }
+
+        .project-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        .project-text {
+            color: #8c92a0;
+            line-height: 1.7;
+            font-size: 1rem;
+            margin-bottom: 30px;
+            flex-grow: 1; /* Preenche o espaço flexível empurrando o botão para baixo */
+        }
+
+        .project-btn {
+            text-align: center;
+            width: 100%;
+            padding: 14px 0; /* Ajuste específico para o botão do card */
+        }
+
+        /* =========================================
+           5. FOOTER (RODAPÉ)
+           ========================================= */
+        .site-footer {
+            background-color: #0b0c0f; /* Fundo mais escuro para fechar a página */
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 80px 0 40px;
+            color: #8c92a0;
+            font-size: 0.95rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col-title {
+            font-family: 'Montserrat', sans-serif;
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .footer-brand h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            color: #ffffff;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            line-height: 1.7;
+            max-width: 350px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #8c92a0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        .footer-legal a {
+            color: #8c92a0;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal a:hover {
+            color: #ffffff;
+        }
+
+        /* =========================================
+           RESPONSIVIDADE (Tablets e Celulares)
+           ========================================= */
+        @media (max-width: 992px) {
+            .pillars-grid, .projects-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 colunas em tablets */
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .footer-brand {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .main-nav ul {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .main-title { font-size: 2.5rem; }
+            .subtitle { font-size: 1.1rem; }
+            .cta-group { flex-direction: column; }
+            
+            .pillars-grid, .projects-grid {
+                grid-template-columns: 1fr; /* 1 coluna no celular */
+            }
+            .about-section {
+                padding: 80px 0;
+            }
+            
+            .methodology-wrapper {
+                grid-template-columns: 1fr; /* Colapsa para 1 coluna no celular */
+                gap: 50px;
+            }
+            .methodology-header {
+                position: static; /* Desativa o efeito grudar (sticky) no celular */
+            }
+            .methodology-section {
+                padding: 80px 0;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .footer-brand {
+                grid-column: span 1;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            .footer-legal a {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
 <body>
 
-<section class="hero">
-    <div class="hero-content">
-        <span class="overline">TRAÇÃO DIGITAL</span>
-        <h1 class="main-title">A verdadeira<br>Engenharia de Tração Digital</h1>
-        <p class="subtitle">Feita por engenheiros, artistas e investidores. Elevamos seu projeto para outro nível.</p>
-        
-        <div class="cta-group">
-            <a href="#" class="btn btn-primary">Projetos Tracionados</a>
-            <a href="#" class="btn btn-secondary">Tracione o seu também</a>
+    <!-- 0. HEADER PRINCIPAL -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="#" class="logo-link">
+                <!-- Substitua 'logo.png' pelo arquivo real da sua imagem no GitHub -->
+                <img src="logo.png" alt="Logo Drivati" class="header-logo">
+            </a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#metodologia">O que entregamos</a></li>
+                    <li><a href="#projetos">Projetos Tracionados</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
         </div>
-    </div>
-</section>
+    </header>
+
+    <!-- 1. SEÇÃO HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="overline">TRAÇÃO DIGITAL</span>
+            <h1 class="main-title">A verdadeira<br>Engenharia de Tração Digital</h1>
+            <p class="subtitle">Feita por engenheiros, artistas e investidores. Elevamos seu projeto para outro nível.</p>
+            
+            <div class="cta-group">
+                <!-- ATUALIZADO: Link corrigido para rolar até a seção de projetos -->
+                <a href="#projetos" class="btn btn-primary">Projetos Tracionados</a>
+                <a href="#contato" class="btn btn-secondary">Tracione o seu também</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. SEÇÃO SOBRE (Nossos Pilares) -->
+    <section class="about-section" id="sobre">
+        <div class="container">
+            
+            <div class="section-header">
+                <span class="overline">Nosso DNA</span>
+                <h2 class="section-title">A Tríade da Tração</h2>
+                <p class="section-description">Nós não fazemos marketing tradicional. Aplicamos uma engenharia reversa de crescimento, unindo três pilares fundamentais para escalar marcas e projetos de alto valor.</p>
+            </div>
+
+            <div class="pillars-grid">
+                
+                <!-- Pilar 1: Engenharia -->
+                <div class="pillar-card">
+                    <span class="pillar-number">01</span>
+                    <h3 class="pillar-title">Engenharia</h3>
+                    <p class="pillar-text">Arquitetura de dados, automação e performance. Construímos fundações sólidas e escaláveis para que o crescimento do seu negócio não seja um palpite, mas uma ciência exata.</p>
+                </div>
+
+                <!-- Pilar 2: Arte -->
+                <div class="pillar-card">
+                    <span class="pillar-number">02</span>
+                    <h3 class="pillar-title">Arte</h3>
+                    <p class="pillar-text">Design minimalista e estética cinematográfica. A primeira impressão dita o valor do negócio. Elevamos a percepção da sua marca ao padrão premium de exigência.</p>
+                </div>
+
+                <!-- Pilar 3: Investimento -->
+                <div class="pillar-card">
+                    <span class="pillar-number">03</span>
+                    <h3 class="pillar-title">Investimento</h3>
+                    <p class="pillar-text">Visão estratégica e agressiva voltada para o ROI. Tratamos o seu capital com a mesma precisão que gerimos nossos fundos. Tração focada em equity e rentabilidade real.</p>
+                </div>
+
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- 3. SEÇÃO METODOLOGIA E PROPOSTA -->
+    <section class="methodology-section" id="metodologia">
+        <div class="container">
+            <div class="methodology-wrapper">
+                
+                <!-- Coluna da Esquerda (Fixa na tela ao rolar no PC) -->
+                <div class="methodology-header">
+                    <span class="overline">O Nosso Propósito</span>
+                    <h2 class="section-title">O que entregamos</h2>
+                    <p class="section-description">
+                        Nossa proposta é promover uma <strong>elevação contínua</strong>. Aumentamos a relevância da sua marca, escalamos o volume do seu público, qualificamos leads e otimizamos orçamentos. O resultado prático é um impacto direto, controlado e escalável no seu <strong>faturamento</strong>.
+                    </p>
+                </div>
+
+                <!-- Coluna da Direita (Passos da Metodologia que Rolam) -->
+                <div class="methodology-content">
+                    
+                    <!-- Item 1 -->
+                    <div class="methodology-step">
+                        <h4 class="step-title">Plano de Crescimento Científico</h4>
+                        <p class="step-text">Através de princípios técnicos rigorosos, elaboramos uma estratégia baseada no objetivo exato de cada cliente. Definimos KPI's e <em>goal points</em> para um acompanhamento milimétrico, realizando as intervenções e correções de rota necessárias de modo pragmático.</p>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="methodology-step">
+                        <h4 class="step-title">Inteligência e Gestão Avançada</h4>
+                        <p class="step-text">A capacidade criativa e analítica apoiada pela velocidade da máquina. Utilizamos ferramentas avançadas de Inteligência Artificial e sistemas robustos de administração de projetos para garantir que absolutamente nenhum detalhe passe despercebido.</p>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="methodology-step">
+                        <h4 class="step-title">Cultura de Agile Teamwork</h4>
+                        <p class="step-text">Operamos como uma engrenagem de alta performance. Cada membro do time possui uma função cirúrgica e vital, operando na filosofia <em>Agile</em>, onde o sucesso definitivo do projeto depende do comprometimento inegociável de todo o ecossistema.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SEÇÃO PROJETOS TRACIONADOS -->
+    <section class="projects-section" id="projetos">
+        <div class="container">
+            
+            <div class="section-header">
+                <span class="overline">Nosso Portfólio</span>
+                <h2 class="section-title">Alguns Projetos Tracionados</h2>
+                <p class="section-description">Marcas que elevaram sua relevância, volume de público e faturamento através da nossa metodologia de engenharia de crescimento.</p>
+            </div>
+
+            <div class="projects-grid">
+                
+                <!-- Projeto 1 -->
+                <div class="project-card">
+                    <!-- A imagem entra como background desta div -->
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop');"></div>
+                    <div class="project-info">
+                        <h3 class="project-title">Bongas Brasil</h3>
+                        <p class="project-text">Implementação e automação de inteligência de vendas. Elevação do padrão visual e estratégia orientada ao mercado corporativo de alto valor.</p>
+                        <!-- ATUALIZADO: Link provisório '#' para ser definido depois -->
+                        <a href="#" class="btn btn-secondary project-btn">Detalhes do projeto</a>
+                    </div>
+                </div>
+
+                <!-- Projeto 2 -->
+                <div class="project-card">
+                    <!-- A imagem entra como background desta div -->
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop');"></div>
+                    <div class="project-info">
+                        <h3 class="project-title">Zanardo Válvulas</h3>
+                        <p class="project-text">Estratégia de posicionamento digital, reestruturação da presença online e fortalecimento institucional no setor industrial brasileiro.</p>
+                        <!-- ATUALIZADO: Link provisório '#' para ser definido depois -->
+                        <a href="#" class="btn btn-secondary project-btn">Detalhes do projeto</a>
+                    </div>
+                </div>
+
+                <!-- Projeto 3 -->
+                <div class="project-card">
+                    <!-- A imagem entra como background desta div -->
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2070&auto=format&fit=crop');"></div>
+                    <div class="project-info">
+                        <h3 class="project-title">Nome do Cliente 3</h3>
+                        <p class="project-text">Descrição resumida do que foi executado. Como a Tríade da Tração aplicou engenharia, arte e gestão de capital para alavancar os resultados da marca.</p>
+                        <!-- ATUALIZADO: Link provisório '#' para ser definido depois -->
+                        <a href="#" class="btn btn-secondary project-btn">Detalhes do projeto</a>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- 5. FOOTER -->
+    <footer class="site-footer" id="contato">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <!-- Coluna 1: Marca e Descrição -->
+                <div class="footer-brand">
+                    <h2>Drivati</h2>
+                    <p>A verdadeira Engenharia de Tração Digital. Elevamos marcas através de princípios técnicos, estéticos e foco absoluto em faturamento.</p>
+                    <a href="mailto:contato@drivati.com" style="color: #ffffff; text-decoration: none; font-weight: 500; border-bottom: 1px solid #ffffff; padding-bottom: 2px;">contato@drivati.com</a>
+                </div>
+
+                <!-- Coluna 2: Navegação -->
+                <div class="footer-nav">
+                    <h4 class="footer-col-title">Navegação</h4>
+                    <ul class="footer-links">
+                        <li><a href="#sobre">A Tríade da Tração</a></li>
+                        <li><a href="#metodologia">O que entregamos</a></li>
+                        <li><a href="#projetos">Projetos Tracionados</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: Social / Outros -->
+                <div class="footer-social">
+                    <h4 class="footer-col-title">Conecte-se</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" target="_blank">LinkedIn</a></li>
+                        <li><a href="#" target="_blank">Instagram</a></li>
+                        <li><a href="#" target="_blank">YouTube</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Rodapé Inferior -->
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2026 Drivati. Todos os direitos reservados.
+                </div>
+                <div class="footer-legal">
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Termos de Serviço</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
