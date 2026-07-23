@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O que entregamos | Drivati</title>
+    
+    <style>
+        /* =========================================
+           FONTES E RESET BÁSICO (Cópia da Home)
+           ========================================= */
+        @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Montserrat:wght@700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0f1115;
+            color: #ffffff;
+            font-family: 'Jost', sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* =========================================
+           0. HEADER (Idêntico ao da Home)
+           ========================================= */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(15, 17, 21, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-logo {
+            height: 30px; 
+            width: auto;
+            display: block;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .main-nav a {
+            color: #b0b5c0;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav a:hover {
+            color: #ffffff;
+        }
+
+        /* Botões */
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #ffffff;
+            color: #0f1115;
+            border: 1px solid #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: #e0e0e0;
+            transform: translateY(-2px);
+        }
+
+        /* Tipografia Base */
+        .overline {
+            display: block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #8c92a0;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        /* =========================================
+           1. HERO DA PÁGINA INTERNA
+           ========================================= */
+        .page-hero {
+            padding: 180px 20px 100px;
+            /* Se quiser, crie uma imagem 'capa-interna.jpg' na pasta img */
+            background-image: linear-gradient(to bottom, rgba(15, 17, 21, 0.8), #0f1115), url('img/capa-interna.jpg');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .page-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            margin-bottom: 24px;
+            color: #ffffff;
+        }
+
+        .page-subtitle { 
+            font-size: 1.25rem; 
+            color: #b0b5c0; 
+            max-width: 700px; 
+            margin: 0 auto; 
+        }
+
+        /* =========================================
+           2. CONTEÚDO DA PROPOSTA
+           ========================================= */
+        .proposal-section { 
+            padding: 100px 0; 
+            background-color: #0f1115; /* Fundo base escuro */
+        }
+        
+        .proposal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Duas colunas (Texto e Imagem) */
+            gap: 80px;
+            align-items: center;
+            margin-bottom: 120px;
+        }
+
+        /* Inverte a ordem da imagem e texto nas linhas pares */
+        .proposal-grid.reverse { 
+            direction: rtl; 
+        }
+        .proposal-grid.reverse > * { 
+            direction: ltr; /* Faz o texto voltar a ler da esquerda pra direita */
+        } 
+        
+        .proposal-text-box h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #00D2D3; /* Ciano de destaque que usamos na Home */
+            letter-spacing: -0.5px;
+        }
+
+        .proposal-text-box h3 span {
+            color: #ffffff;
+        }
+
+        .proposal-text-box p { 
+            color: #b0b5c0; 
+            font-size: 1.125rem; 
+            margin-bottom: 20px; 
+            line-height: 1.8;
+        }
+        
+        .proposal-image-box {
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            /* Sombra suave */
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .proposal-image-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Faixa de Ação Final (CTA) */
+        .action-banner {
+            background-color: #22252B; /* Fundo cinza escuro */
+            padding: 80px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .action-banner h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* =========================================
+           3. FOOTER (Idêntico ao da Home)
+           ========================================= */
+        .site-footer {
+            background-color: #0b0c0f; 
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 80px 0 40px;
+            color: #8c92a0;
+            font-size: 0.95rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col-title {
+            font-family: 'Montserrat', sans-serif;
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .footer-logo {
+            height: 40px; 
+            width: auto;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            line-height: 1.7;
+            max-width: 350px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: #8c92a0; text-decoration: none; transition: color 0.3s ease; }
+        .footer-links a:hover { color: #ffffff; }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        .footer-legal a { color: #8c92a0; text-decoration: none; margin-left: 20px; transition: color 0.3s ease; }
+        .footer-legal a:hover { color: #ffffff; }
+
+        /* =========================================
+           RESPONSIVIDADE
+           ========================================= */
+        @media (max-width: 992px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-brand { grid-column: span 2; }
+            .proposal-grid { grid-template-columns: 1fr; gap: 40px; margin-bottom: 80px; }
+            .proposal-grid.reverse { direction: ltr; } /* Remove inversão no tablet/celular */
+        }
+
+        @media (max-width: 768px) {
+            .header-container { flex-direction: column; gap: 15px; }
+            .main-nav ul { gap: 20px; flex-wrap: wrap; justify-content: center; }
+            .page-title { font-size: 2.5rem; }
+            .action-banner h2 { font-size: 2rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            .footer-brand { grid-column: span 1; }
+            .footer-bottom { flex-direction: column; text-align: center; gap: 15px; }
+            .footer-legal a { margin: 0 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER (Mantém a navegação funcionando. Note que os links apontam para 'index.html') -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="index.html" class="logo-link">
+                <!-- Certifique-se de que a imagem 'logo.png' está na pasta 'img' -->
+                <img src="img/logo.png" alt="Logo Drivati" class="header-logo">
+            </a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="o-que-entregamos.html">O que entregamos</a></li>
+                    <li><a href="index.html#projetos">Projetos Tracionados</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO DA PÁGINA -->
+    <section class="page-hero">
+        <div class="container">
+            <span class="overline">Nossa Proposta de Valor</span>
+            <h1 class="page-title">Não fazemos marketing.<br>Construímos motores de tração.</h1>
+            <p class="page-subtitle">A união exata entre arquitetura de dados, estética cinematográfica e foco obsessivo no faturamento do seu negócio.</p>
+        </div>
+    </section>
+
+    <!-- CONTEÚDO DA PROPOSTA (Blocos intercalados) -->
+    <section class="proposal-section">
+        <div class="container">
+
+            <!-- Bloco 1: Engenharia e Dados -->
+            <div class="proposal-grid">
+                <div class="proposal-text-box">
+                    <span class="overline">Fase 01</span>
+                    <h3><span>Engenharia &</span> Dados Avançados</h3>
+                    <p>O crescimento de um negócio não pode ser baseado em palpites. Antes de qualquer execução criativa, implementamos um ecossistema de tagueamento e arquitetura de dados robusta.</p>
+                    <p>Mapeamos cada ponto de contato do seu cliente, configuramos CRMs de alta performance e criamos dashboards para que cada centavo investido seja rastreável. Você passa a ter controle científico sobre o seu processo de vendas.</p>
+                </div>
+                <div class="proposal-image-box">
+                    <!-- Imagem temporária -->
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Dashboard de Dados">
+                </div>
+            </div>
+
+            <!-- Bloco 2: Arte e Percepção (Invertido na tela grande) -->
+            <div class="proposal-grid reverse">
+                <div class="proposal-text-box">
+                    <span class="overline">Fase 02</span>
+                    <h3><span>Estética &</span> Percepção de Valor</h3>
+                    <p>A primeira impressão dita o preço que o mercado aceita pagar pelo seu produto. Unimos design minimalista à estética cinematográfica para elevar a sua marca a um padrão premium de exigência.</p>
+                    <p>Produzimos peças que não apenas chamam a atenção, mas constroem autoridade instantânea. O objetivo da nossa direção de arte é tornar a concorrência irrelevante no momento da decisão do cliente.</p>
+                </div>
+                <div class="proposal-image-box">
+                    <!-- Imagem temporária -->
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" alt="Direção de Arte">
+                </div>
+            </div>
+
+            <!-- Bloco 3: Escala e ROI -->
+            <div class="proposal-grid">
+                <div class="proposal-text-box">
+                    <span class="overline">Fase 03</span>
+                    <h3><span>Tração &</span> Foco no Faturamento</h3>
+                    <p>Operamos a gestão de tráfego e distribuição com a visão de um fundo de investimentos. Nosso foco exclusivo não é "gerar curtidas", mas otimizar o Custo de Aquisição (CAC) e maximizar o Retorno (ROI).</p>
+                    <p>Aplicamos orçamentos de forma tática nas principais plataformas (Meta, Google, LinkedIn) e retroalimentamos o sistema com Inteligência Artificial para escalar seu público e, principalmente, a qualidade dos leads que chegam ao seu comercial.</p>
+                </div>
+                <div class="proposal-image-box">
+                    <!-- Imagem temporária -->
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2070&auto=format&fit=crop" alt="Gráfico de Crescimento">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FAIXA DE AÇÃO (CTA) -->
+    <section class="action-banner">
+        <div class="container">
+            <h2>Pronto para elevar a sua marca?</h2>
+            <p style="color: #b0b5c0; margin-bottom: 30px; font-size: 1.125rem;">Nossa equipe de engenheiros e diretores de arte está pronta para estruturar o seu projeto.</p>
+            <a href="mailto:contato@drivati.com" class="btn btn-primary">Falar com um Especialista</a>
+        </div>
+    </section>
+
+    <!-- FOOTER (Idêntico ao da Home) -->
+    <footer class="site-footer" id="contato">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <div class="footer-brand">
+                    <img src="img/logo.png" alt="Logo Drivati" class="footer-logo">
+                    <p>A verdadeira Engenharia de Tração Digital. Elevamos marcas através de princípios técnicos, estéticos e foco absoluto em faturamento.</p>
+                    <a href="mailto:contato@drivati.com" style="color: #ffffff; text-decoration: none; font-weight: 500; border-bottom: 1px solid #ffffff; padding-bottom: 2px;">contato@drivati.com</a>
+                </div>
+
+                <div class="footer-nav">
+                    <h4 class="footer-col-title">Navegação</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#sobre">A Tríade da Tração</a></li>
+                        <li><a href="o-que-entregamos.html">O que entregamos</a></li>
+                        <li><a href="index.html#projetos">Projetos Tracionados</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-social">
+                    <h4 class="footer-col-title">Conecte-se</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" target="_blank">LinkedIn</a></li>
+                        <li><a href="#" target="_blank">Instagram</a></li>
+                        <li><a href="#" target="_blank">YouTube</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2026 Drivati. Todos os direitos reservados.
+                </div>
+                <div class="footer-legal">
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Termos de Serviço</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
