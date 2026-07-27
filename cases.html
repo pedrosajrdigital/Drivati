@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cases de Sucesso | Drivati</title>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Montserrat:wght@700;800&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #0f1115; color: #ffffff; font-family: 'Jost', sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* HEADER & FOOTER */
+        .site-header { position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(15, 17, 21, 0.75); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); z-index: 1000; padding: 20px 0; transition: all 0.3s ease; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+        .header-logo { height: 30px; width: auto; display: block; }
+        .main-nav ul { display: flex; list-style: none; gap: 40px; }
+        .main-nav a { color: #b0b5c0; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.3s ease; }
+        .main-nav a:hover { color: #EC4899; }
+
+        .site-footer { background-color: #0b0c0f; border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 80px 0 40px; color: #8c92a0; font-size: 0.95rem; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+        .footer-col-title { font-family: 'Montserrat', sans-serif; color: #ffffff; font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; letter-spacing: -0.5px; }
+        .footer-logo { height: 40px; width: auto; display: block; margin-bottom: 20px; }
+        .footer-brand p { line-height: 1.7; max-width: 350px; margin-bottom: 20px; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: #8c92a0; text-decoration: none; transition: color 0.3s ease; }
+        .footer-links a:hover { color: #EC4899; }
+        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; }
+        .footer-legal a { color: #8c92a0; text-decoration: none; margin-left: 20px; transition: color 0.3s ease; }
+        .footer-legal a:hover { color: #ffffff; }
+
+        .btn { display: inline-block; padding: 14px 28px; font-size: 1rem; font-weight: 600; text-decoration: none; border-radius: 30px; transition: all 0.3s ease; cursor: pointer; text-align: center; }
+        .btn-primary { background-color: #EC4899; color: #ffffff; border: 1px solid #EC4899; box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3); }
+        .btn-primary:hover { background-color: #d93b85; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(236, 72, 153, 0.5); }
+        .btn-secondary { background-color: transparent; color: #ffffff; border: 1px solid #4a4d55; }
+        .btn-secondary:hover { border-color: #EC4899; color: #EC4899; background-color: rgba(236, 72, 153, 0.05); transform: translateY(-2px); }
+
+        .page-hero { padding: 160px 20px 80px; text-align: center; background-color: #171026; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .overline { display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 4px; color: #EC4899; margin-bottom: 20px; font-weight: 600; }
+        .page-title { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; font-weight: 800; line-height: 1.1; letter-spacing: -1px; margin-bottom: 20px; color: #ffffff; }
+        .page-subtitle { font-size: 1.25rem; color: #b0b5c0; max-width: 700px; margin: 0 auto; }
+
+        .projects-section { padding: 100px 0; background-color: #0f1115; }
+        .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        
+        .project-card { background-color: #171026; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease; }
+        .project-card:hover { transform: translateY(-8px); border-color: rgba(236, 72, 153, 0.4); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); }
+        
+        .project-image { width: 100%; height: 300px; background-size: cover; background-position: center; border-bottom: 1px solid rgba(255, 255, 255, 0.05); position: relative; }
+        .project-image::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, #171026, transparent); opacity: 0.8; }
+        
+        .project-info { padding: 40px; display: flex; flex-direction: column; flex-grow: 1; margin-top: -60px; position: relative; z-index: 2; }
+        .tag-group { display: flex; gap: 10px; margin-bottom: 15px; }
+        .tag { font-size: 0.75rem; text-transform: uppercase; padding: 4px 12px; background-color: rgba(236, 72, 153, 0.15); color: #EC4899; border-radius: 20px; font-weight: 600; }
+        
+        .project-title { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; font-weight: 700; margin-bottom: 15px; color: #ffffff; letter-spacing: -0.5px; }
+        .project-text { color: #8c92a0; line-height: 1.7; font-size: 1.05rem; margin-bottom: 30px; flex-grow: 1; }
+        .project-btn { width: 100%; }
+
+        .banner-cta { background: linear-gradient(135deg, #7C3AED, #EC4899); border-radius: 20px; padding: 60px 40px; text-align: center; margin-top: 80px; }
+        .banner-cta h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: #ffffff; margin-bottom: 20px; font-weight: 800; }
+        .banner-cta .btn-primary { background-color: #ffffff; color: #EC4899; border-color: #ffffff; }
+        .banner-cta .btn-primary:hover { background-color: #f0f0f0; }
+
+        @media (max-width: 992px) { .projects-grid, .footer-grid { grid-template-columns: 1fr; } .footer-brand { grid-column: span 1; } }
+        @media (max-width: 768px) {
+            .header-container { flex-direction: column; gap: 15px; } .main-nav ul { gap: 20px; flex-wrap: wrap; justify-content: center; }
+            .page-title { font-size: 2.5rem; } .project-info { padding: 25px; } .banner-cta h2 { font-size: 1.8rem; }
+            .footer-bottom { flex-direction: column; text-align: center; gap: 15px; }
+        }
+    </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-536M7R5P2W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-536M7R5P2W');
+    </script>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <section class="page-hero">
+        <div class="container">
+            <span class="overline">Nosso Histórico</span>
+            <h1 class="page-title">Feeds que falam por si</h1>
+            <p class="page-subtitle">Pequenos negócios locais que viraram referência na cidade e multiplicaram as vendas através do tráfego e conteúdo inteligente.</p>
+        </div>
+    </section>
+
+    <section class="projects-section">
+        <div class="container">
+            <div class="projects-grid">
+                
+                <!-- Case 1 -->
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=2070&auto=format&fit=crop');"></div>
+                    <div class="project-info">
+                        <div class="tag-group">
+                            <span class="tag">Saúde & Beleza</span>
+                            <span class="tag">Tráfego Local</span>
+                        </div>
+                        <h3 class="project-title">Clínica de Estética</h3>
+                        <p class="project-text">Reformulação visual do feed para transmitir alto padrão (Premium). Criamos campanhas de anúncios focadas no agendamento via WhatsApp num raio de 10km. <strong>Resultado:</strong> Agenda de harmonização lotada em 3 semanas.</p>
+                        <a href="contato.html" class="btn btn-secondary project-btn">Quero esse resultado</a>
+                    </div>
+                </div>
+
+                <!-- Case 2 -->
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1974&auto=format&fit=crop');"></div>
+                    <div class="project-info">
+                        <div class="tag-group">
+                            <span class="tag">Gastronomia</span>
+                            <span class="tag">Social Media</span>
+                        </div>
+                        <h3 class="project-title">Restaurante & Delivery</h3>
+                        <p class="project-text">Foco pesado em fotografia que gera desejo (Food Porn) e roteiros criativos de bastidores da cozinha. Anúncios rodando apenas nos horários de pico. <strong>Resultado:</strong> Aumento de 300% nos pedidos via iFood e WhatsApp próprio.</p>
+                        <a href="contato.html" class="btn btn-secondary project-btn">Quero esse resultado</a>
+                    </div>
+                </div>
+
+                <!-- Case 3 -->
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e08?q=80&w=2070&auto=format&fit=crop');"></div>
+                    <div class="project-info">
+                        <div class="tag-group">
+                            <span class="tag">Varejo de Moda</span>
+                            <span class="tag">Design Gráfico</span>
+                        </div>
+                        <h3 class="project-title">Loja de Roupas</h3>
+                        <p class="project-text">Estratégia baseada em vídeos curtos de provador (Reels e TikTok) turbinados com botões de compra direta. Criamos toda a identidade visual de campanhas promocionais. <strong>Resultado:</strong> Estoque da nova coleção esgotado em 5 dias.</p>
+                        <a href="contato.html" class="btn btn-secondary project-btn">Quero esse resultado</a>
+                    </div>
+                </div>
+
+                <!-- Case 4 -->
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1622345512278-f7b7cf7a0c84?q=80&w=2070&auto=format&fit=crop');"></div>
+                    <div class="project-info">
+                        <div class="tag-group">
+                            <span class="tag">Serviços Profissionais</span>
+                            <span class="tag">Lançamento</span>
+                        </div>
+                        <h3 class="project-title">Escritório de Advocacia</h3>
+                        <p class="project-text">Desmistificação do "juridiquês" através de vídeos rápidos tirando dúvidas comuns da população. Anúncios no Google focados em pessoas pesquisando ativamente por soluções legais. <strong>Resultado:</strong> Geração diária de leads qualificados.</p>
+                        <a href="contato.html" class="btn btn-secondary project-btn">Quero esse resultado</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="banner-cta">
+                <h2>O próximo case de sucesso é o seu negócio.</h2>
+                <a href="contato.html" class="btn btn-primary">Falar com um especialista</a>
+            </div>
+
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('header.html').then(response => response.text()).then(data => document.getElementById('header-placeholder').innerHTML = data);
+        fetch('footer.html').then(response => response.text()).then(data => document.getElementById('footer-placeholder').innerHTML = data);
+    </script>
+</body>
+</html>
