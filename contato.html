@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | Drivati</title>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Montserrat:wght@700;800&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #0f1115; color: #ffffff; font-family: 'Jost', sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* HEADER & FOOTER */
+        .site-header { position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(15, 17, 21, 0.75); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); z-index: 1000; padding: 20px 0; transition: all 0.3s ease; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+        .header-logo { height: 30px; width: auto; display: block; }
+        .main-nav ul { display: flex; list-style: none; gap: 40px; }
+        .main-nav a { color: #b0b5c0; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.3s ease; }
+        .main-nav a:hover { color: #EC4899; }
+
+        .site-footer { background-color: #0b0c0f; border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 80px 0 40px; color: #8c92a0; font-size: 0.95rem; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+        .footer-col-title { font-family: 'Montserrat', sans-serif; color: #ffffff; font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; letter-spacing: -0.5px; }
+        .footer-logo { height: 40px; width: auto; display: block; margin-bottom: 20px; }
+        .footer-brand p { line-height: 1.7; max-width: 350px; margin-bottom: 20px; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: #8c92a0; text-decoration: none; transition: color 0.3s ease; }
+        .footer-links a:hover { color: #EC4899; }
+        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; }
+        .footer-legal a { color: #8c92a0; text-decoration: none; margin-left: 20px; transition: color 0.3s ease; }
+        .footer-legal a:hover { color: #ffffff; }
+
+        .btn { display: inline-block; padding: 16px 32px; font-size: 1rem; font-weight: 600; text-decoration: none; border-radius: 30px; transition: all 0.3s ease; cursor: pointer; text-align: center; width: 100%;}
+        .btn-primary { background-color: #EC4899; color: #ffffff; border: 1px solid #EC4899; box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3); }
+        .btn-primary:hover { background-color: #d93b85; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(236, 72, 153, 0.5); }
+
+        .page-hero { padding: 160px 20px 60px; text-align: center; }
+        .overline { display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 4px; color: #EC4899; margin-bottom: 20px; font-weight: 600; }
+        .page-title { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; font-weight: 800; line-height: 1.1; letter-spacing: -1px; margin-bottom: 20px; color: #ffffff; }
+        .page-subtitle { font-size: 1.25rem; color: #b0b5c0; max-width: 600px; margin: 0 auto; }
+
+        .contact-section { padding: 60px 0 120px; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        
+        .contact-info-box h3 { font-family: 'Montserrat', sans-serif; font-size: 2rem; margin-bottom: 30px; color: #ffffff; }
+        .contact-method { display: flex; align-items: flex-start; gap: 20px; margin-bottom: 40px; }
+        .method-icon { width: 50px; height: 50px; background-color: rgba(236, 72, 153, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #EC4899; font-weight: bold; font-size: 1.2rem;}
+        .method-text h4 { color: #ffffff; font-size: 1.1rem; margin-bottom: 5px; }
+        .method-text p { color: #8c92a0; font-size: 1rem; margin-bottom: 5px; }
+        .method-text a { color: #EC4899; text-decoration: none; font-weight: 600; }
+        .method-text a:hover { text-decoration: underline; }
+
+        .contact-form-box { background-color: #171026; padding: 50px 40px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .form-group { margin-bottom: 25px; }
+        .form-group label { display: block; margin-bottom: 10px; color: #b0b5c0; font-size: 0.95rem; font-weight: 500; }
+        .form-control { width: 100%; padding: 15px 20px; background-color: rgba(15, 17, 21, 0.8); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; color: #ffffff; font-family: 'Jost', sans-serif; font-size: 1rem; transition: border-color 0.3s; }
+        .form-control:focus { outline: none; border-color: #EC4899; }
+        textarea.form-control { min-height: 150px; resize: vertical; }
+
+        @media (max-width: 992px) { .contact-grid, .footer-grid { grid-template-columns: 1fr; gap: 50px; } .footer-brand { grid-column: span 1; } }
+        @media (max-width: 768px) {
+            .header-container { flex-direction: column; gap: 15px; } .main-nav ul { gap: 20px; flex-wrap: wrap; justify-content: center; }
+            .page-title { font-size: 2.5rem; } .contact-form-box { padding: 30px 20px; }
+            .footer-bottom { flex-direction: column; text-align: center; gap: 15px; }
+        }
+    </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-536M7R5P2W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-536M7R5P2W');
+    </script>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <section class="page-hero">
+        <div class="container">
+            <span class="overline">Fale com a equipe</span>
+            <h1 class="page-title">Pronto para viralizar?</h1>
+            <p class="page-subtitle">Preencha o formulário abaixo e vamos agendar uma call rápida para traçar a estratégia de vendas do seu negócio.</p>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                
+                <div class="contact-info-box">
+                    <h3>Nossos Canais</h3>
+                    
+                    <div class="contact-method">
+                        <div class="method-icon">✉️</div>
+                        <div class="method-text">
+                            <h4>E-mail</h4>
+                            <p>Propostas e dúvidas comerciais.</p>
+                            <!-- ATENÇÃO: Troque este e-mail para o real da Drivati -->
+                            <a href="mailto:contato@drivati.com.br">contato@drivati.com.br</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="method-icon">💬</div>
+                        <div class="method-text">
+                            <h4>WhatsApp</h4>
+                            <p>Atendimento rápido de Seg a Sex.</p>
+                            <a href="#">+55 (11) 99999-9999</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-box">
+                    <!-- ATENÇÃO: Não esqueça de trocar o email do FormSubmit aqui também -->
+                    <form action="https://formsubmit.co/contato@drivati.com.br" method="POST">
+                        <input type="hidden" name="_subject" value="Novo Lead - Drivati">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        
+                        <div class="form-group">
+                            <label for="nome">Seu Nome / Marca</label>
+                            <input type="text" id="nome" name="nome" class="form-control" placeholder="Ex: Loja de Roupas da Maria" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="instagram">Seu @ no Instagram (Opcional)</label>
+                            <input type="text" id="instagram" name="instagram" class="form-control" placeholder="@suamarca">
+                        </div>
+                        <div class="form-group">
+                            <label for="mensagem">Qual é o seu maior desafio hoje?</label>
+                            <textarea id="mensagem" name="mensagem" class="form-control" placeholder="Preciso de mais vendas, feed mais profissional, etc..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Solicitar Orçamento</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('header.html').then(response => response.text()).then(data => document.getElementById('header-placeholder').innerHTML = data);
+        fetch('footer.html').then(response => response.text()).then(data => document.getElementById('footer-placeholder').innerHTML = data);
+    </script>
+</body>
+</html>
