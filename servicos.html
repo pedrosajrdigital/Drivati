@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossos Serviços | Drivati</title>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Montserrat:wght@700;800&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #0f1115; color: #ffffff; font-family: 'Jost', sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* HEADER & FOOTER */
+        .site-header { position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(15, 17, 21, 0.75); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); z-index: 1000; padding: 20px 0; transition: all 0.3s ease; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+        .header-logo { height: 30px; width: auto; display: block; }
+        .main-nav ul { display: flex; list-style: none; gap: 40px; }
+        .main-nav a { color: #b0b5c0; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.3s ease; }
+        .main-nav a:hover { color: #EC4899; }
+
+        .site-footer { background-color: #0b0c0f; border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 80px 0 40px; color: #8c92a0; font-size: 0.95rem; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+        .footer-col-title { font-family: 'Montserrat', sans-serif; color: #ffffff; font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; letter-spacing: -0.5px; }
+        .footer-logo { height: 40px; width: auto; display: block; margin-bottom: 20px; }
+        .footer-brand p { line-height: 1.7; max-width: 350px; margin-bottom: 20px; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: #8c92a0; text-decoration: none; transition: color 0.3s ease; }
+        .footer-links a:hover { color: #EC4899; }
+        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; }
+        .footer-legal a { color: #8c92a0; text-decoration: none; margin-left: 20px; transition: color 0.3s ease; }
+        .footer-legal a:hover { color: #ffffff; }
+
+        /* BOTOES */
+        .btn { display: inline-block; padding: 16px 32px; font-size: 1rem; font-weight: 600; text-decoration: none; border-radius: 30px; transition: all 0.3s ease; cursor: pointer; text-align: center; }
+        .btn-primary { background-color: #EC4899; color: #ffffff; border: 1px solid #EC4899; box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3); }
+        .btn-primary:hover { background-color: #d93b85; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(236, 72, 153, 0.5); }
+
+        /* HERO INTERNO */
+        .page-hero { padding: 160px 20px 80px; text-align: center; background-image: linear-gradient(to bottom, rgba(23, 16, 38, 0.9), #0f1115); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .overline { display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 4px; color: #EC4899; margin-bottom: 20px; font-weight: 600; }
+        .page-title { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; font-weight: 800; line-height: 1.1; letter-spacing: -1px; margin-bottom: 20px; color: #ffffff; }
+        .page-subtitle { font-size: 1.25rem; color: #b0b5c0; max-width: 700px; margin: 0 auto; }
+
+        /* DETALHE DOS SERVIÇOS */
+        .service-details { padding: 100px 0; }
+        .service-row { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 100px; }
+        .service-row.reverse { direction: rtl; } /* Inverte a ordem lado a lado */
+        .service-row.reverse > * { direction: ltr; }
+        
+        .service-image { border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 20px 40px rgba(0,0,0,0.5); position: relative; }
+        .service-image img { width: 100%; height: auto; display: block; }
+        .service-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(45deg, rgba(124, 58, 237, 0.2), transparent); }
+
+        .service-info h2 { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; color: #ffffff; margin-bottom: 20px; letter-spacing: -0.5px; }
+        .service-info p { color: #b0b5c0; font-size: 1.1rem; margin-bottom: 20px; line-height: 1.8; }
+        .service-features { list-style: none; margin-bottom: 30px; }
+        .service-features li { color: #ffffff; font-size: 1.05rem; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .service-features li::before { content: "🔥"; font-size: 1.2rem; }
+
+        @media (max-width: 992px) { .footer-grid { grid-template-columns: 1fr 1fr; } .footer-brand { grid-column: span 2; } }
+        @media (max-width: 768px) {
+            .header-container { flex-direction: column; gap: 15px; } .main-nav ul { gap: 20px; flex-wrap: wrap; justify-content: center; }
+            .page-title { font-size: 2.5rem; }
+            .service-row, .service-row.reverse { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+            .service-features li { justify-content: center; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; } .footer-brand { grid-column: span 1; } .footer-bottom { flex-direction: column; text-align: center; gap: 15px; } .footer-legal a { margin: 0 10px; }
+        }
+    </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-536M7R5P2W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-536M7R5P2W');
+    </script>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <section class="page-hero">
+        <div class="container">
+            <span class="overline">Ecossistema Completo</span>
+            <h1 class="page-title">Soluções que vendem.</h1>
+            <p class="page-subtitle">Pare de se preocupar com algoritmos. Nós criamos, postamos e anunciamos para você ter foco no que importa: atender seus clientes.</p>
+        </div>
+    </section>
+
+    <section class="service-details">
+        <div class="container">
+            
+            <!-- Serviço 1 -->
+            <div class="service-row">
+                <div class="service-info">
+                    <h2>Gestão de Social Media</h2>
+                    <p>Um perfil bonito não serve de nada se não tiver estratégia. Nós cuidamos do seu Instagram e TikTok com foco absoluto em gerar desejo e retenção de atenção.</p>
+                    <ul class="service-features">
+                        <li>Calendário de postagens estratégicas</li>
+                        <li>Roteiros virais para Reels e TikTok</li>
+                        <li>Legendas persuasivas (Copywriting)</li>
+                        <li>Interação e resposta a comentários</li>
+                    </ul>
+                    <a href="contato.html" class="btn btn-primary">Quero no meu negócio</a>
+                </div>
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1974&auto=format&fit=crop" alt="Social Media">
+                </div>
+            </div>
+
+            <!-- Serviço 2 (Reverso) -->
+            <div class="service-row reverse">
+                <div class="service-info">
+                    <h2>Tráfego Pago Local</h2>
+                    <p>Faça com que pessoas da sua cidade vejam o seu negócio todos os dias. Usamos anúncios patrocinados (Ads) para colocar sua oferta direto no celular de quem já quer comprar de você.</p>
+                    <ul class="service-features">
+                        <li>Anúncios no Instagram e Facebook</li>
+                        <li>Campanhas para lotar o seu WhatsApp</li>
+                        <li>Segmentação por raio (CEP) e interesses</li>
+                        <li>Otimização diária de verba (Sem desperdício)</li>
+                    </ul>
+                    <a href="contato.html" class="btn btn-primary">Começar a anunciar</a>
+                </div>
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Tráfego Pago">
+                </div>
+            </div>
+
+            <!-- Serviço 3 -->
+            <div class="service-row">
+                <div class="service-info">
+                    <h2>Design & Identidade Visual</h2>
+                    <p>Sua marca precisa passar confiança imediata. Desenvolvemos uma estética única, moderna e vibrante que destaca você no meio da poluição visual da internet.</p>
+                    <ul class="service-features">
+                        <li>Criação de Logotipo e Manuais da Marca</li>
+                        <li>Paleta de cores e tipografia</li>
+                        <li>Templates exclusivos para o Feed/Stories</li>
+                        <li>Materiais para PDV (Ponto de Venda)</li>
+                    </ul>
+                    <a href="contato.html" class="btn btn-primary">Renovar minha marca</a>
+                </div>
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1626785773579-c13f6cb5eb74?q=80&w=2070&auto=format&fit=crop" alt="Design Gráfico">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('header.html').then(response => response.text()).then(data => document.getElementById('header-placeholder').innerHTML = data);
+        fetch('footer.html').then(response => response.text()).then(data => document.getElementById('footer-placeholder').innerHTML = data);
+    </script>
+</body>
+</html>
