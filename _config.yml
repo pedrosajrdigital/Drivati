@@ -1,0 +1,13 @@
+title: Drivati
+description: Marketing, redes sociais e tráfego local para negócios que querem vender mais na sua região.
+url: "https://drivati.com.br"
+lang: pt-BR
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+
+exclude:
+  - README.md
+  - Recep.png
