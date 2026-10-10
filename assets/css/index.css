@@ -1,0 +1,337 @@
+/* =========================================
+   FONTES E RESET BÁSICO
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0f1115; /* Fundo base escuro */
+    color: #ffffff;
+    font-family: 'Jost', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* =========================================
+   HEADER (Injetado via JS, apenas estilos aqui)
+   ========================================= */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(15, 17, 21, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 1000;
+    padding: 20px 0;
+    transition: all 0.3s ease;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo { height: 30px; width: auto; display: block; }
+
+.main-nav ul { display: flex; list-style: none; gap: 40px; }
+.main-nav a { color: #b0b5c0; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.3s ease; }
+.main-nav a:hover { color: #EC4899; /* Rosa Drivati */ }
+
+/* =========================================
+   1. SEÇÃO HERO
+   ========================================= */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* Usando um gradiente Roxo escuro para o fundo do Hero */
+    background-image: linear-gradient(to bottom, rgba(15, 17, 21, 0.7), #0f1115), url('Recep.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 0 20px;
+}
+
+.hero-content {
+    max-width: 800px;
+    z-index: 2;
+}
+
+.overline {
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #EC4899; /* Rosa vibrante */
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.main-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    margin-bottom: 24px;
+    color: #ffffff;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #b0b5c0;
+    margin-bottom: 40px;
+}
+
+.cta-group {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 16px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 30px; /* Botões mais redondos, estilo startup/social */
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #EC4899; /* Rosa Drivati */
+    color: #ffffff;
+    border: 1px solid #EC4899;
+    box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #d93b85;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(236, 72, 153, 0.5);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #4a4d55;
+}
+
+.btn-secondary:hover {
+    border-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   2. SEÇÃO SERVIÇOS
+   ========================================= */
+.about-section {
+    background-color: #171026; /* Fundo arroxeado escuro */
+    padding: 120px 0;
+}
+
+.section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 80px;
+}
+
+.section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.section-description {
+    font-size: 1.125rem;
+    color: #b0b5c0;
+    line-height: 1.7;
+}
+
+.pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+
+.pillar-card {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 50px 40px;
+    border-radius: 12px; /* Mais arredondado */
+    transition: transform 0.4s ease, border-color 0.4s ease, background-color 0.4s ease;
+}
+
+.pillar-card:hover {
+    transform: translateY(-10px);
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: #7C3AED; /* Borda roxa no hover */
+}
+
+.pillar-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.pillar-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+}
+
+.pillar-text { color: #8c92a0; line-height: 1.7; font-size: 1rem; }
+
+/* =========================================
+   3. SEÇÃO METODOLOGIA
+   ========================================= */
+.methodology-section {
+    background-color: #7C3AED; /* Fundo Roxo Vibrante */
+    padding: 120px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.methodology-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: start;
+}
+
+.methodology-header { position: sticky; top: 120px; }
+
+.methodology-header .overline { color: #d8b4fe; }
+.methodology-header .section-title { color: #ffffff; }
+.methodology-header .section-description { font-size: 1.25rem; color: #ede9fe; line-height: 1.6; }
+
+.methodology-step {
+    padding: 40px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.4s ease;
+}
+
+.methodology-step:hover { transform: translateX(10px); }
+.methodology-step:first-child { padding-top: 0; }
+.methodology-step:last-child { border-bottom: none; padding-bottom: 0; }
+
+.step-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 15px;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.step-title::before {
+    content: ""; display: inline-block; width: 12px; height: 12px;
+    background-color: #EC4899; /* Bolinha Rosa */
+    border-radius: 50%;
+}
+
+.step-text { color: #ede9fe; line-height: 1.7; font-size: 1.125rem; padding-left: 27px; }
+
+/* =========================================
+   4. SEÇÃO PROJETOS (CASES)
+   ========================================= */
+.projects-section {
+    background-color: #0f1115;
+    padding: 120px 0;
+}
+
+.projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+
+.project-card {
+    background-color: #171026;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(236, 72, 153, 0.3); /* Borda rosa no hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.project-image {
+    width: 100%; height: 240px; background-size: cover; background-position: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.project-info { padding: 40px 30px; display: flex; flex-direction: column; flex-grow: 1; }
+.project-title { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; color: #ffffff; letter-spacing: -0.5px; }
+.project-text { color: #8c92a0; line-height: 1.7; font-size: 1rem; margin-bottom: 30px; flex-grow: 1; }
+
+.project-btn { text-align: center; width: 100%; padding: 14px 0; border-radius: 30px; }
+
+/* =========================================
+   5. FOOTER (Estilos Injetados)
+   ========================================= */
+.site-footer { background-color: #0b0c0f; border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 80px 0 40px; color: #8c92a0; font-size: 0.95rem; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+.footer-col-title { font-family: 'Montserrat', sans-serif; color: #ffffff; font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; letter-spacing: -0.5px; }
+.footer-logo { height: 40px; width: auto; display: block; margin-bottom: 20px; }
+.footer-brand p { line-height: 1.7; max-width: 350px; margin-bottom: 20px; }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 12px; }
+.footer-links a { color: #8c92a0; text-decoration: none; transition: color 0.3s ease; }
+.footer-links a:hover { color: #EC4899; }
+.footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; }
+.footer-legal a { color: #8c92a0; text-decoration: none; margin-left: 20px; transition: color 0.3s ease; }
+.footer-legal a:hover { color: #ffffff; }
+
+/* RESPONSIVIDADE */
+@media (max-width: 992px) {
+    .pillars-grid, .projects-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .footer-brand { grid-column: span 2; }
+}
+@media (max-width: 768px) {
+    .header-container { flex-direction: column; gap: 15px; }
+    .main-nav ul { gap: 20px; flex-wrap: wrap; justify-content: center; }
+    .main-title { font-size: 2.5rem; }
+    .subtitle { font-size: 1.1rem; }
+    .cta-group { flex-direction: column; }
+    .pillars-grid, .projects-grid { grid-template-columns: 1fr; }
+    .about-section { padding: 80px 0; }
+    .methodology-wrapper { grid-template-columns: 1fr; gap: 50px; }
+    .methodology-header { position: static; }
+    .methodology-section { padding: 80px 0; }
+    .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+    .footer-brand { grid-column: span 1; }
+    .footer-bottom { flex-direction: column; text-align: center; gap: 15px; }
+    .footer-legal a { margin: 0 10px; }
+}
