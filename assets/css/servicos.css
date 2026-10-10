@@ -23,7 +23,7 @@
 .service-info p { color: #b0b5c0; font-size: 1.1rem; margin-bottom: 20px; line-height: 1.8; }
 .service-features { list-style: none; margin-bottom: 30px; }
 .service-features li { color: #ffffff; font-size: 1.05rem; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-.service-features li::before { content: "🔥"; font-size: 1.2rem; }
+.service-features li::before { content: ""; width: 12px; height: 14px; flex-shrink: 0; background: url("../img/icons/bar.svg") no-repeat center / contain; }
 
 @media (max-width: 992px) { .footer-grid { grid-template-columns: 1fr 1fr; } .footer-brand { grid-column: span 2; } }
 @media (max-width: 768px) {
@@ -33,3 +33,5 @@
     .service-features li { justify-content: center; }
     .footer-grid { grid-template-columns: 1fr; gap: 40px; } .footer-brand { grid-column: span 1; } .footer-bottom { flex-direction: column; text-align: center; gap: 15px; } .footer-legal a { margin: 0 10px; }
 }
+.service-image--art { aspect-ratio: 4 / 3; display: grid; place-items: center; background: radial-gradient(ellipse at 30% 20%, rgba(var(--accent-rgb), 0.35), transparent 60%), linear-gradient(135deg, var(--surface), #14141b); }
+.service-image--art img { width: 38%; max-width: 200px; height: auto; position: relative; z-index: 1; }
