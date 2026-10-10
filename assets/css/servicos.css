@@ -1,11 +1,11 @@
 /* BOTOES */
 .btn { display: inline-block; padding: 16px 32px; font-size: 1rem; font-weight: 600; text-decoration: none; border-radius: 30px; transition: all 0.3s ease; cursor: pointer; text-align: center; }
-.btn-primary { background-color: #EC4899; color: #ffffff; border: 1px solid #EC4899; box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3); }
-.btn-primary:hover { background-color: #d93b85; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(236, 72, 153, 0.5); }
+.btn-primary { background-color: var(--accent); color: #ffffff; border: 1px solid var(--accent); box-shadow: 0 4px 15px rgba(var(--accent-rgb), 0.3); }
+.btn-primary:hover { background-color: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(var(--accent-rgb), 0.5); }
 
 /* HERO INTERNO */
 .page-hero { padding: 160px 20px 80px; text-align: center; background-image: linear-gradient(to bottom, rgba(23, 16, 38, 0.9), #0f1115); border-bottom: 1px solid rgba(255,255,255,0.05); }
-.overline { display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 4px; color: #EC4899; margin-bottom: 20px; font-weight: 600; }
+.overline { display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 4px; color: var(--accent-text); margin-bottom: 20px; font-weight: 600; }
 .page-title { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; font-weight: 800; line-height: 1.1; letter-spacing: -1px; margin-bottom: 20px; color: #ffffff; }
 .page-subtitle { font-size: 1.25rem; color: #b0b5c0; max-width: 700px; margin: 0 auto; }
 

@@ -47,11 +47,11 @@ body {
     align-items: center;
 }
 
-.header-logo { height: 30px; width: auto; display: block; }
+.header-logo { height: 34px; width: auto; display: block; }
 
 .main-nav ul { display: flex; list-style: none; gap: 40px; }
 .main-nav a { color: #b0b5c0; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.3s ease; }
-.main-nav a:hover { color: #EC4899; /* Rosa Drivati */ }
+.main-nav a:hover { color: var(--accent-text); }
 
 /* =========================================
    1. SEÇÃO HERO
@@ -81,7 +81,7 @@ body {
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 4px;
-    color: #EC4899; /* Rosa vibrante */
+    color: var(--accent-text);
     margin-bottom: 20px;
     font-weight: 600;
 }
@@ -122,16 +122,16 @@ body {
 }
 
 .btn-primary {
-    background-color: #EC4899; /* Rosa Drivati */
+    background-color: var(--accent);
     color: #ffffff;
-    border: 1px solid #EC4899;
-    box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+    border: 1px solid var(--accent);
+    box-shadow: 0 4px 15px rgba(var(--accent-rgb), 0.3);
 }
 
 .btn-primary:hover {
-    background-color: #d93b85;
+    background-color: var(--accent-hover);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(236, 72, 153, 0.5);
+    box-shadow: 0 6px 20px rgba(var(--accent-rgb), 0.5);
 }
 
 .btn-secondary {
@@ -188,7 +188,7 @@ body {
 .pillar-card:hover {
     transform: translateY(-10px);
     background-color: rgba(255, 255, 255, 0.05);
-    border-color: #7C3AED; /* Borda roxa no hover */
+    border-color: var(--accent);
 }
 
 .pillar-icon {
@@ -212,7 +212,7 @@ body {
    3. SEÇÃO METODOLOGIA
    ========================================= */
 .methodology-section {
-    background-color: #7C3AED; /* Fundo Roxo Vibrante */
+    background-color: var(--accent);
     padding: 120px 0;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
@@ -254,7 +254,7 @@ body {
 
 .step-title::before {
     content: ""; display: inline-block; width: 12px; height: 12px;
-    background-color: #EC4899; /* Bolinha Rosa */
+    background-color: var(--accent);
     border-radius: 50%;
 }
 
@@ -282,7 +282,7 @@ body {
 
 .project-card:hover {
     transform: translateY(-8px);
-    border-color: rgba(236, 72, 153, 0.3); /* Borda rosa no hover */
+    border-color: rgba(var(--accent-rgb), 0.3);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
 
@@ -308,7 +308,7 @@ body {
 .footer-links { list-style: none; }
 .footer-links li { margin-bottom: 12px; }
 .footer-links a { color: #8c92a0; text-decoration: none; transition: color 0.3s ease; }
-.footer-links a:hover { color: #EC4899; }
+.footer-links a:hover { color: var(--accent-text); }
 .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; }
 .footer-legal a { color: #8c92a0; text-decoration: none; margin-left: 20px; transition: color 0.3s ease; }
 .footer-legal a:hover { color: #ffffff; }

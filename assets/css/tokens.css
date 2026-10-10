@@ -1,0 +1,26 @@
+/* Design tokens do Drivati: ajuste as cores aqui e o site inteiro acompanha */
+:root {
+    /* Fundos */
+    --bg: #0f1115;
+    --surface: #171026;         /* cards e seções em violeta escuro */
+    --surface-footer: #0b0c0f;
+
+    /* Acento: violeta é a cor principal; rosa só como ponta de degradê */
+    --accent: #7C3AED;          /* botões e preenchimentos (texto branco: contraste ~5,7:1) */
+    --accent-hover: #6D28D9;
+    --accent-text: #A78BFA;     /* texto e links sobre fundo escuro */
+    --accent-2: #EC4899;        /* uso restrito: fim do degradê */
+    --accent-rgb: 124, 58, 237;
+
+    /* Textos */
+    --text: #ffffff;
+    --text-muted: #b0b5c0;
+    --text-dim: #8c92a0;
+
+    /* Cinza metálico (superfícies e bordas, em harmonia com o logo) */
+    --metal-light: #c9ccd1;
+    --metal-mid: #6b7078;
+    --metal-dark: #3a3d42;
+    --metal-gradient: linear-gradient(180deg, #4a4e55 0%, #2c2f34 100%);
+    --border: rgba(255, 255, 255, 0.05);
+}
