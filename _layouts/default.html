@@ -18,14 +18,8 @@
     {% unless page.standalone %}<link rel="stylesheet" href="{{ '/assets/css/base.css' | relative_url }}">{% endunless %}
     <link rel="stylesheet" href="{{ '/assets/css/' | append: page.css | append: '.css' | relative_url }}">
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-536M7R5P2W"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-536M7R5P2W');
-    </script>
+    <link rel="stylesheet" href="{{ '/assets/css/consent.css' | relative_url }}">
+    <script src="{{ '/assets/js/consent.js' | relative_url }}" defer></script>
 </head>
 <body>
 

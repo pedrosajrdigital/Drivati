@@ -1,0 +1,29 @@
+.cookie-banner {
+    position: fixed; left: 16px; bottom: 16px; z-index: 900;
+    width: 320px; max-width: calc(100vw - 32px);
+    padding: 14px 16px;
+    background: rgba(23, 16, 38, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+    font-size: 0.82rem; line-height: 1.5; color: var(--text-muted);
+    opacity: 0; transform: translateY(8px); pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.cookie-banner.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+.cookie-banner p { margin: 0 0 10px; }
+.cookie-banner a { color: var(--accent-text); }
+.cookie-actions { display: flex; gap: 8px; justify-content: flex-end; }
+.cookie-btn {
+    font: inherit; font-weight: 600; cursor: pointer;
+    padding: 6px 14px; border-radius: 999px;
+    background: transparent; color: var(--text);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.cookie-btn:hover { border-color: var(--accent-text); }
+.cookie-btn--primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.cookie-btn--primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+.cookie-btn:focus-visible, .cookie-banner a:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; }
+@media (max-width: 480px) { .cookie-banner { left: 12px; right: 12px; bottom: 12px; width: auto; } }
+@media (prefers-reduced-motion: reduce) { .cookie-banner { transition: none; } }
