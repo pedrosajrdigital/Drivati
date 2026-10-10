@@ -41,3 +41,6 @@
 /* Card de case sem foto: fundo de marca em vez de imagem de banco */
 .project-image--brand { background: radial-gradient(ellipse at 30% 20%, rgba(var(--accent-rgb), 0.55), transparent 65%), linear-gradient(135deg, var(--surface), #2a1659); }
 .projects-grid--single { grid-template-columns: 1fr; max-width: 760px; margin: 0 auto; }
+
+.project-note { color: var(--text-dim); font-size: 0.85rem; margin: -14px 0 24px; }
+.project-image--alt { background: radial-gradient(ellipse at 70% 25%, rgba(var(--accent-rgb), 0.45), transparent 65%), linear-gradient(135deg, #1b1b22, var(--surface)); }

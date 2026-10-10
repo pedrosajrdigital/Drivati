@@ -338,3 +338,7 @@ body {
 .projects-grid--single { grid-template-columns: 1fr; max-width: 760px; margin: 0 auto; }
 .tag-group { display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; }
 .tag { font-size: 0.75rem; text-transform: uppercase; padding: 4px 12px; background-color: rgba(var(--accent-rgb), 0.15); color: var(--accent-text); border-radius: 20px; font-weight: 600; }
+
+.project-note { color: var(--text-dim); font-size: 0.85rem; margin: -14px 0 24px; }
+.project-image--alt { background: radial-gradient(ellipse at 70% 25%, rgba(var(--accent-rgb), 0.45), transparent 65%), linear-gradient(135deg, #1b1b22, var(--surface)); }
+@media (min-width: 993px) { .projects-grid--duo { grid-template-columns: repeat(2, 1fr); max-width: 1000px; margin: 0 auto; } }
