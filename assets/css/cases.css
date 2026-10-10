@@ -10,7 +10,7 @@
 .page-subtitle { font-size: 1.25rem; color: #b0b5c0; max-width: 700px; margin: 0 auto; }
 
 .projects-section { padding: 100px 0; background-color: #0f1115; }
-.projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+.projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
 
 .project-card { background-color: #171026; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease; }
 .project-card:hover { transform: translateY(-8px); border-color: rgba(var(--accent-rgb), 0.4); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); }
