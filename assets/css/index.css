@@ -356,3 +356,5 @@ body {
 /* Imagens reais dos trabalhos */
 .project-image--photo { height: auto; aspect-ratio: 1200 / 492; background-color: var(--surface); }
 .project-image--photo::before { display: none; }
+
+.cover-note { margin-top: 28px; text-align: center; color: var(--text-dim); font-size: 0.85rem; }
