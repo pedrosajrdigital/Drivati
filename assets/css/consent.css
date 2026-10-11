@@ -27,3 +27,9 @@
 .cookie-btn:focus-visible, .cookie-banner a:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; }
 @media (max-width: 480px) { .cookie-banner { left: 12px; right: 12px; bottom: 12px; width: auto; } }
 @media (prefers-reduced-motion: reduce) { .cookie-banner { transition: none; } }
+
+/* Botão flutuante de WhatsApp */
+.wa-float { position: fixed; right: 16px; bottom: 16px; z-index: 800; display: inline-flex; align-items: center; gap: 8px; padding: 12px 16px; color: #fff; text-decoration: none; font: 500 14px/1 'Jost', sans-serif; border: 1.5px solid rgba(255,255,255,.85); border-radius: 999px; background: rgba(15,17,21,.35); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); transition: background .2s, border-color .2s, transform .2s; }
+.wa-float:hover, .wa-float:focus-visible { background: rgba(124,58,237,.35); border-color: #fff; transform: translateY(-2px); }
+.wa-float:focus-visible { outline: 2px solid #A78BFA; outline-offset: 3px; }
+@media (max-width: 480px) { .wa-float span { display: none; } .wa-float { padding: 13px; } }
