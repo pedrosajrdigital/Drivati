@@ -352,3 +352,7 @@ body {
 .principles-note { max-width: 760px; margin: 56px auto 0; text-align: center; color: var(--text-muted); font-size: 1.1rem; line-height: 1.7; }
 @media (max-width: 992px) { .principles-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 768px) { .principles-grid { grid-template-columns: 1fr; } .principles-section { padding: 70px 0; } }
+
+/* Imagens reais dos trabalhos */
+.project-image--photo { height: auto; aspect-ratio: 1200 / 492; background-color: var(--surface); }
+.project-image--photo::before { display: none; }

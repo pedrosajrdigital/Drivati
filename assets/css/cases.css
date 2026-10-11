@@ -44,3 +44,8 @@
 
 .project-note { color: var(--text-dim); font-size: 0.85rem; margin: -14px 0 24px; }
 .project-image--alt { background: radial-gradient(ellipse at 70% 25%, rgba(var(--accent-rgb), 0.45), transparent 65%), linear-gradient(135deg, #1b1b22, var(--surface)); }
+
+/* Imagens reais dos trabalhos */
+.project-image--photo { height: auto; aspect-ratio: 1200 / 492; background-color: var(--surface); }
+.project-image--photo::before { display: none; }
+.project-image--photo + .project-info { margin-top: 0; }
