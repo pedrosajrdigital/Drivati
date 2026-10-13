@@ -24,6 +24,7 @@
 .form-control { width: 100%; padding: 15px 20px; background-color: rgba(15, 17, 21, 0.8); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; color: #ffffff; font-family: 'Jost', sans-serif; font-size: 1rem; transition: border-color 0.3s; }
 .form-control:focus { outline: none; border-color: var(--accent-text); }
 textarea.form-control { min-height: 150px; resize: vertical; }
+.form-note { margin-top: 16px; color: var(--text-dim); font-size: 0.9rem; }
 
 @media (max-width: 992px) { .contact-grid, .footer-grid { grid-template-columns: 1fr; gap: 50px; } .footer-brand { grid-column: span 1; } }
 @media (max-width: 768px) {
