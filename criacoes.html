@@ -1,0 +1,73 @@
+---
+layout: default
+title: "Vídeos e criações | Drivati"
+description: "Vídeos, animações e criações da Drivati para marcas e projetos reais."
+css: criacoes
+---
+    <section class="page-hero">
+        <div class="container">
+            <span class="overline">Criações</span>
+            <h1 class="page-title">Vídeos e criações</h1>
+            <p class="page-subtitle">Animações, vídeos e peças produzidos pela Drivati para marcas e projetos reais.</p>
+        </div>
+    </section>
+
+    <section class="creations-section">
+        <div class="container">
+
+            <div class="section-header">
+                <h2 class="section-title">Vídeos</h2>
+                <p class="section-description">Toque em reproduzir para assistir aqui mesmo, ou abra o vídeo direto no YouTube.</p>
+            </div>
+
+            <div class="video-grid">
+                {% for video in site.data.videos %}
+                <article class="video-card{% if video.vertical %} video-card--vertical{% endif %}">
+                    <div class="video-frame">
+                        <button type="button" class="video-play" data-video-id="{{ video.id }}" data-video-title="{{ video.title | escape }}" aria-label="Reproduzir: {{ video.title | escape }}">
+                            <span class="play-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></span>
+                            <span class="video-poster-title">{{ video.title }}</span>
+                        </button>
+                    </div>
+                    <div class="video-info">
+                        <div class="tag-group">
+                            {% for tag in video.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+                        </div>
+                        <h3 class="video-title">{{ video.title }}</h3>
+                        <p class="video-text">{{ video.text }}</p>
+                        {% if video.ia %}<p class="video-note">Inteligência artificial usada como ferramenta de apoio na criação.</p>{% endif %}
+                        <a href="{{ video.url }}" target="_blank" rel="noopener" class="video-link">Assistir no YouTube</a>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+
+            <p class="video-privacy">O vídeo só é carregado do YouTube depois que você clica em reproduzir.</p>
+
+            <!-- Próxima seção: logotipos e artes (galeria de SVGs), a ser adicionada aqui. -->
+
+            <div class="banner-cta">
+                <h2>O seu projeto pode ser o próximo.</h2>
+                <a href="contato.html" class="btn btn-primary">Falar com a Drivati</a>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+    (function () {
+        var buttons = document.querySelectorAll('.video-play');
+        buttons.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var frame = btn.parentNode;
+                var iframe = document.createElement('iframe');
+                iframe.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(btn.getAttribute('data-video-id')) + '?autoplay=1&rel=0';
+                iframe.title = btn.getAttribute('data-video-title');
+                iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+                iframe.setAttribute('allowfullscreen', '');
+                iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+                frame.replaceChild(iframe, btn);
+            });
+        });
+    })();
+    </script>
