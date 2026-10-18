@@ -1,0 +1,31 @@
+# Vídeos da página "Criações" (criacoes.html).
+# Para adicionar um vídeo, copie um bloco e preencha:
+#   id: código do vídeo no YouTube (o trecho depois de v= ou youtu.be/)
+#   url: link para assistir no YouTube
+#   vertical: true para Shorts (formato 9:16)
+#   ia: true para exibir o aviso de que IA foi usada como apoio
+- id: d0WMA52YIg8
+  url: https://youtu.be/d0WMA52YIg8
+  title: Compilação de animações - Intros - Bongas
+  text: Animações usadas em vídeos institucionais, eventos e mídias sociais.
+  tags: [Animação, Vídeo institucional]
+
+- id: Fk8rlt9bVdk
+  url: https://youtu.be/Fk8rlt9bVdk
+  title: Animação - Introdução a vídeos institucionais e eventos
+  text: Logo e animação criados pela Drivati.
+  tags: [Animação, Logotipo]
+
+- id: Tstw7SlcIqk
+  url: https://youtube.com/shorts/Tstw7SlcIqk
+  title: Apresentação Institucional
+  text: Apresentação institucional em formato vertical, para redes sociais.
+  tags: [Vídeo institucional, Shorts]
+  vertical: true
+  ia: true
+
+- id: QmmwXHOvxmg
+  url: https://youtu.be/QmmwXHOvxmg
+  title: Simulação "teste" com atuador elétrico White-E
+  text: Simulação feita há cerca de três anos, sem recursos de IA, para mostrar como o equipamento funciona.
+  tags: [Simulação]

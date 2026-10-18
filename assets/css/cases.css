@@ -51,3 +51,5 @@
 .project-image--photo + .project-info { margin-top: 0; }
 
 .cover-note { margin-top: 28px; text-align: center; color: var(--text-dim); font-size: 0.85rem; }
+
+.more-works { text-align: center; margin-top: 50px; }
