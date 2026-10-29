@@ -1,0 +1,31 @@
+# Carrosséis publicados nas redes (seção "Posts e artes" de criacoes.html).
+# Para adicionar um post: salve os slides em assets/img/posts/<pasta>/01.webp, 02.webp... e copie um bloco.
+#   folder: nome da pasta dentro de assets/img/posts
+#   slides: quantidade de slides
+#   alts: texto alternativo de cada slide, na ordem
+- folder: instagram-sinais
+  title: "3 sinais de que o Instagram do seu negócio não está trazendo cliente"
+  text: Carrossel para Instagram sobre seguidores que não viram conversa, perfil sem proposta clara e posts sem convite.
+  tags: [Instagram, Carrossel]
+  slides: 6
+  alts:
+    - "Capa: 3 sinais de que o Instagram do seu negócio não está trazendo cliente"
+    - "Sinal 1: seguidores não viram conversa"
+    - "Sinal 2: o perfil não diz o que é vendido"
+    - "Sinal 3: os posts não pedem nada"
+    - "Por onde começar: bio com 3 informações, botão de WhatsApp e convite claro em cada post"
+    - "Fechamento: a Drivati analisa o perfil e apresenta escopo, prazo e valor por escrito"
+
+- folder: google-meu-negocio
+  title: "Google Meu Negócio: o que preencher para ser encontrado"
+  text: Checklist em carrossel sobre dados básicos, descrição, fotos, avaliações e postagens do perfil.
+  tags: [Instagram, Carrossel, Google]
+  slides: 7
+  alts:
+    - "Capa: Google Meu Negócio, o que preencher para ser encontrado"
+    - "Por que importa: o perfil aparece antes do site"
+    - "Passo 1: dados básicos completos e iguais em todo lugar"
+    - "Passo 2: descrição e serviços"
+    - "Passo 3: fotos reais e avaliações"
+    - "Passo 4: postagens e link rastreável"
+    - "Fechamento: perfil organizado, com escopo e valor por escrito"

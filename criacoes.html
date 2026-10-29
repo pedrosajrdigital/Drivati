@@ -44,7 +44,33 @@ css: criacoes
 
             <p class="video-privacy">O vídeo só é carregado do YouTube depois que você clica em reproduzir.</p>
 
-            <!-- Próxima seção: logotipos e artes (galeria de SVGs), a ser adicionada aqui. -->
+            <div class="section-header section-header--spaced">
+                <h2 class="section-title">Posts e artes para redes sociais</h2>
+                <p class="section-description">Carrosséis publicados no <a href="https://www.instagram.com/drivatidigital/" target="_blank" rel="noopener" class="video-link">Instagram da Drivati</a>.</p>
+            </div>
+
+            <div class="post-grid">
+                {% for post in site.data.posts %}
+                <article class="post-card">
+                    <img class="post-cover" src="{{ '/assets/img/posts/' | append: post.folder | append: '/01.webp' | relative_url }}" alt="{{ post.alts[0] | escape }}" width="1080" height="1350" loading="lazy">
+                    <div class="video-info">
+                        <div class="tag-group">
+                            {% for tag in post.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+                        </div>
+                        <h3 class="video-title">{{ post.title }}</h3>
+                        <p class="video-text">{{ post.text }}</p>
+                        <details class="post-slides">
+                            <summary>Ver os {{ post.slides }} slides</summary>
+                            <div class="post-strip">
+                                {% for i in (2..post.slides) %}
+                                <img src="{{ '/assets/img/posts/' | append: post.folder | append: '/0' | append: i | append: '.webp' | relative_url }}" alt="{{ post.alts[forloop.index] | escape }}" width="1080" height="1350" loading="lazy">
+                                {% endfor %}
+                            </div>
+                        </details>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
 
             <div class="banner-cta">
                 <h2>O seu projeto pode ser o próximo.</h2>
