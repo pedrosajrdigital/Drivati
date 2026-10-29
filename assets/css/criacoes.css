@@ -39,12 +39,25 @@
 
 .video-privacy { margin-top: 28px; text-align: center; color: var(--text-dim); font-size: 0.85rem; }
 
+.section-header--spaced { margin-top: 90px; }
+.post-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; align-items: start; }
+.post-card { background-color: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: border-color 0.4s ease, box-shadow 0.4s ease; }
+.post-card:hover { border-color: rgba(var(--accent-rgb), 0.4); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); }
+.post-cover { display: block; width: 100%; height: auto; }
+.post-slides summary { cursor: pointer; color: var(--accent-text); font-weight: 600; list-style: none; }
+.post-slides summary::-webkit-details-marker { display: none; }
+.post-slides summary::after { content: " +"; }
+.post-slides[open] summary::after { content: " \2212"; }
+.post-slides summary:focus-visible { outline: 3px solid var(--accent-text); outline-offset: 4px; border-radius: 4px; }
+.post-strip { display: flex; gap: 14px; overflow-x: auto; margin-top: 18px; padding-bottom: 10px; scroll-snap-type: x mandatory; }
+.post-strip img { flex: 0 0 62%; width: 62%; height: auto; border-radius: 10px; scroll-snap-align: start; }
+
 .banner-cta { background: linear-gradient(135deg, var(--accent), var(--accent-2)); border-radius: 20px; padding: 60px 40px; text-align: center; margin-top: 80px; }
 .banner-cta h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: #ffffff; margin-bottom: 20px; font-weight: 800; }
 .banner-cta .btn-primary { background-color: #ffffff; color: var(--accent); border-color: #ffffff; }
 .banner-cta .btn-primary:hover { background-color: #f0f0f0; }
 
-@media (max-width: 992px) { .video-grid, .footer-grid { grid-template-columns: 1fr; } .footer-brand { grid-column: span 1; } }
+@media (max-width: 992px) { .video-grid, .post-grid, .footer-grid { grid-template-columns: 1fr; } .footer-brand { grid-column: span 1; } }
 @media (max-width: 768px) {
     .header-container { flex-direction: column; gap: 15px; } .main-nav ul { gap: 20px; flex-wrap: wrap; justify-content: center; }
     .page-title { font-size: 2.5rem; } .video-info { padding: 22px; } .banner-cta h2 { font-size: 1.8rem; }
