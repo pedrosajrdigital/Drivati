@@ -34,7 +34,7 @@ body {
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     z-index: 1000;
-    padding: 20px 0;
+    padding: 14px 0;
     transition: all 0.3s ease;
 }
 
@@ -47,7 +47,7 @@ body {
     align-items: center;
 }
 
-.header-logo { height: 34px; width: auto; display: block; }
+.header-logo { height: 50px; width: auto; display: block; }
 
 .main-nav ul { display: flex; list-style: none; gap: 40px; }
 .main-nav a { color: #b0b5c0; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.3s ease; }
@@ -300,7 +300,7 @@ body {
 .site-footer { background-color: #0b0c0f; border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 80px 0 40px; color: #8c92a0; font-size: 0.95rem; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
 .footer-col-title { font-family: 'Montserrat', sans-serif; color: #ffffff; font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; letter-spacing: -0.5px; }
-.footer-logo { height: 40px; width: auto; display: block; margin-bottom: 20px; }
+.footer-logo { height: 64px; width: auto; display: block; margin-bottom: 20px; }
 .footer-brand p { line-height: 1.7; max-width: 350px; margin-bottom: 20px; }
 .footer-links { list-style: none; }
 .footer-links li { margin-bottom: 12px; }
