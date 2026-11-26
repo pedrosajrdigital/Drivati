@@ -10,3 +10,10 @@ plugins:
 
 exclude:
   - README.md
+
+# Imagem de compartilhamento (LinkedIn, WhatsApp, Facebook) em todas as páginas
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/img/og-drivati.png
